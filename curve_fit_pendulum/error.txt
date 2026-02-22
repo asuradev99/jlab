@@ -1,0 +1,40 @@
+------------
+Running 'pdflatex  -synctex=1 -interaction=nonstopmode -file-line-error -recorder  "/home/aditya/code/jlab/curve_fit_pendulum/sample-paper.tex"'
+------------
+This is pdfTeX, Version 3.141592653-2.6-1.40.27 (TeX Live 2026/dev/Arch Linux) (preloaded format=pdflatex)
+ restricted \write18 enabled.
+entering extended mode
+(/home/aditya/code/jlab/curve_fit_pendulum/sample-paper.tex
+LaTeX2e <2024-11-01> patch level 2
+L3 programming layer <2025-01-18>
+
+! LaTeX Error: File `revtex4-1.cls' not found.
+
+Type X to quit or <RETURN> to proceed,
+or enter new name. (Default extension: cls)
+
+Enter file name: 
+/home/aditya/code/jlab/curve_fit_pendulum/sample-paper.tex:68: Emergency stop.
+<read *> 
+         
+l.68 ^^M
+        
+/home/aditya/code/jlab/curve_fit_pendulum/sample-paper.tex:68:  ==> Fatal error occurred, no output PDF file produced!
+Transcript written on sample-paper.log.
+Latexmk: Getting log file 'sample-paper.log'
+Latexmk: Examining 'sample-paper.fls'
+Latexmk: Examining 'sample-paper.log'
+Latexmk: Missing input file 'revtex4-1.cls' (or dependence on it) from following:
+  ! LaTeX Error: File `revtex4-1.cls' not found.
+Latexmk: Errors, so I did not complete making targets
+Collected error summary (may duplicate other messages):
+  pdflatex: Command for 'pdflatex' gave return code 1
+      Refer to 'sample-paper.log' and/or above output for details
+
+Latexmk: Sometimes, the -f option can be used to get latexmk
+  to try to force complete processing.
+  But normally, you will need to correct the file(s) that caused the
+  error, and then rerun latexmk.
+  In some cases, it is best to clean out generated files before rerunning
+  latexmk after you've corrected the files.
+

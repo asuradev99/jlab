@@ -1,0 +1,237 @@
+% Note to reader: lines beginning with the '%' character are
+% 'comments' to you, the human reader of this code, and are 
+% ignored by the LaTeX compiler.
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% = Sample template for MIT Junior Lab Student Written Summaries =
+% Available from 
+%    http://web.mit.edu/8.13/www/Samplepaper/sample-paper.tex
+%
+% Last Updated July 23, 2014
+%
+% Adapted from the American Physical Societies REVTeK-4.1 Pages
+%    at http://publish.aps.org
+%
+% ADVICE TO STUDENTS: Each time you write a paper, start with this
+%    template and save under a new filename.  If convenient, don't
+%    erase unneeded lines, just comment them out using the 
+%    '%' character at the start of the line.  Often, they
+%    will be useful containers for information.
+%
+% Using pdflatex, images must be either PNG, GIF, JPEG or PDF.
+%    Turn EPS (encapsulated postscript) images to PDF using the
+%    epstopdf utility on UNIX systems.
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% = TO COMPILE THIS DOCUMENT =
+%
+% From the command line, it would go like this --- assuming you are
+%    in the directory where the filename.tex source file and the 
+%    filename.bib bibliography file are located, and that you have 
+%    permission to create and write files in that directory:
+%      > pdflatex filename
+%      > bibtex filename
+%      > pdflatex filname
+%      > pdflatex filename
+%    Yes, you run the command several times. The earlier runs 
+%    create auxilliary files which keep track of references,
+%    citations, equation and section numberring, etc. The later
+%    runs combine the information in these auxilliary files with
+%    your source document to create the finished product.
+%
+% If you are using a GUI LaTeX editor like TeXWorks, then there
+%    is probably a menu bar button for pdfLaTeX and another for
+%    BibTeX. Hit them in the order indicated above. There is 
+%    probably also a 'TeXify' button, or something similarly named,
+%    which runs all the above commands in one shot.     
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%  = PREAMBLE =
+% The preamble of a LaTeX document is the set of commands that precede
+% the \begin{document} line.  It contains a \documentclass line
+% to load the REVTeK-4.1 macro definitions and various \usepackage
+% lines to load other macro packages.
+%
+% ADVICE TO STUDENTS: This preamble contains a suggested set of
+%     class options to generate a ``Junior Lab'' look and feel that
+%     facilitate quick review and feedback from one's peers, TAs,
+%     and section instructors.  Don't make substantial changes 
+%     to the style without first consulting your section 
+%     instructor.
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%\documentclass[aps,twocolumn,secnumarabic,balancelastpage,amsmath,amssymb,nofootinbib, floatfix]{revtex4}
+\documentclass[aps,twocolumn,secnumarabic,balancelastpage,amsmath,amssymb,nofootinbib,floatfix]{revtex4-1}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% N.B.:  Different computers have different packages installed.  
+%        To compile this template in the current Athena 
+%        environment, REVTeX 4.1 must be used.  To use the older
+%        REVTeX 4, switch which documentclass line above is 
+%        commented out above. There are ``bad'' distributions of
+%        LaTeX for Windows available on the internet which may 
+%        cause users to struggle unjustifiably with REVTeX 4.1.
+%
+%        If you are unable to compile the template at all, you
+%        may need to update your LaTeX packages. (Alternatively, if 
+%        your LaTeX distribution includes only the older RevTEX 4,
+%        then try changing the documentclass line above. In particular,
+%        this approach solves a common compilation problem for users of
+%        the TeXWorks editor on Windows, which presents erroneously as a
+%        error in the bibliography file.) Don't hesitate to speak 
+%        with your section instructor or a TA if you're having 
+%        issues getting this template to compile.
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% = Explanation of documentclass options =
+%
+% aps, prl stand for American Physical Society and Physical 
+%     Review Letters respectively.
+% twocolumn permits two columns, of course.
+% nobalancelastpage doesn't attempt to equalize the lengths of 
+%     the two columns on the last page  as might be desired in a 
+%     journal where articles follow one another closely.
+% amsmath and amssymb are necessary for the subequations 
+%     environment among others. These functionalities can
+%     also be added use the usepackage function described below,
+%     but REVTeX conveniently includes them as documentclass
+%     options.
+% secnumarabic identifies sections by number to aid electronic 
+%     review and commentary.
+% nofootinbib forces footnotes to occur on the page where they are
+%      first referenced and not in the bibliography.
+% floatfix attempts to help LaTeX decide where to place ``floats'',
+%      like figures and plots, when it gets stuck and can't decide
+%      by it's normal algorithm.
+% REVTeX 4.1 is a set of macro packages designed to be used with 
+%      LaTeX 2e. REVTeX is well-suited for preparing manuscripts 
+%      for submission to APS journals.
+%
+% = Other documentclasses =
+%
+% The 'revtex4' and 'revtex4-1' documentclasses are somewhat 
+%    specialized for making documents in the style of the APS
+%    journals. For a more standard or generic looking LaTeX paper,
+%    you could try any of the built-in documentclasses, in 
+%    particular 'article' or 'report'. Someday, you may try to use 
+%    the 'mitthesis'  documentclass available for download from the 
+%    MIT Libraries. The vast majority of source code written for 
+%    one documentclass should work just fine in any other, but 
+%    occasional quirks arise. For example, some documentclasses 
+%    disagree on whether the abstract declaration should come 
+%    before or after the \begin{document} declaration.
+% 
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%% Now, include some packages which provide new commands that 
+%% extend LaTeX's capabilities. Note that the nearly-essential
+%% AMS math packages were added already as documentclass options
+%% for REVTeX, but could have been added here using 
+%% \usepackage{amsmath}, etc. The pacakges below are commonly 
+%% useful, but there are many, many more available to solve a 
+%% multitude of typesetting quandries (google your problem), 
+%% and you  probably have the necesary packages installed on your
+%% system already. Among the examples listed below, this sample
+%% document only actually makes use of the 'graphicx', 'bm', 
+%% and 'hyperref' pacakges, so the others are commented out for
+%% tidyness.
+
+
+\usepackage{graphicx}      % tools for importing graphics
+%\usepackage{lgrind}        % convert program code listings to a form 
+                            % includable in a LaTeX document
+%\usepackage{xcolor}        % produces boxes or entire pages with 
+                            % colored backgrounds
+%\usepackage{longtable}     % helps with long table options
+%\usepackage{epsf}          % old package handles encapsulated postscript issues
+\usepackage{bm}            % special bold-math package. usge: \bm{mathsymbol}
+%\usepackage{asymptote}     % For typesetting of mathematical illustrations
+%\usepackage{thumbpdf}
+\usepackage[colorlinks=true]{hyperref}  % this package should be added after 
+                                        % all others.
+                                        % usage: \url{http://web.mit.edu/8.13}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% And now, begin the document...
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{document}
+\title{Response to AS2: Homework 2 ``Make presentation quality graphics"}
+\author{Ethan Suresh}
+\email{easuresh@mit.edu}
+\homepage{http://web.mit.edu/8.13/} %If you don't have one, just comment out this line.
+\date{\today}
+\affiliation{MIT Department of Physics}
+
+
+\begin{abstract}
+We analyze a dataset of gravitational acceleration measurements obtained from simple pendulum
+experiments conducted across students from multiple past J-Lab classes.
+After rejecting outliers using an interquartile-range criterion (data points must be within $10$ IQR from the median), we fit a Gaussian distribution to the
+distribution of measured $g$ values using a chi-squared regression algorithm.
+We find a value of $g = 9.794 \pm 0.007\ \mathrm{m/s^2}$, consistent with the accepted value of
+$g = 9.804\ \mathrm{m/s^2}$ for the Boston area to within $1.42 \sigma$.
+The fit yields a high $\chi^2/\mathrm{dof} = 168.7/36$ as well as an extremely low probability of fit $p = 0.00$, primarily due to long non-Gaussian tails. This 
+indicating that the Gaussian distribution is a poor fit for this dataset.
+\end{abstract}
+
+\maketitle
+
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% This is a basic figure drawn using the asymptote package
+% see http://asymptote.sourceforge.net/ for more information
+%\begin{figure}
+%\centering
+%\begin{asy}
+%size(3cm);
+%draw(unitcircle);
+%\end{asy}
+%\caption{Embedded Asymptote Figure} \label {fig:asymptote1}
+%\end{figure}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{figure}
+\centering
+\includegraphics[width=\columnwidth]{pendulum_single_fit.png}
+\caption{A histogram distribution of gravitational acceleration $g$ measurements ($N=556$ trials after outlier rejection). The uncertainty is each bin
+is taken to be the square root of the number of counts in that bin, following a Poisson distribution. The histogram is fit to a Gaussian (solid curve), 
+using a Chi-squared regression algorithm. The regression yielded fit parameters $\mu = 9.794 \pm 0.009 \mathrm{m/s^2}$ (dashed vertical line) and 
+$\sigma = 0.170 \pm 0.008 \mathrm{m/s^2}$  (shaded band). From these parameters, the uncertainty in the mean is calculated as 
+$\sigma_\mu = \sigma/\sqrt{N} = 0.007 \mathrm{m/s^2}$,
+The lower panel shows the normalized residuals, which show a non-random distribution of errors that are often further than one standard error from the 
+prediction, resulting in a large. In particular, the tails of the Gaussian prediction systematically underestimate the data while the peak behavior overestimates the 
+data. Thus, the probability of fit $p$ is extremely small.}
+\label{fig:pendulum_fit}
+\end{figure}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{acknowledgments} 
+    The dataset for this document was generated by students in previous years of Junior Lab and organized by Junior Lab staff. Additionally, the template 
+    for this document was adapted from the American Physical Society's REVTeK-4.1 template by Junior Lab staff, and the code used 
+    to perform the Chi-Squared fit was adapted from a template created by Junior Lab Staff. Finally, I am grateful to the Junior Lab staff 
+    for their advice in preparing this analysis. 
+\end{acknowledgments}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Place all of the references you used to write this paper in a file
+% with the same name as following the \bibliography command
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\bibliography{sample-paper}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\clearpage
+\appendix
+
+\end{document}
