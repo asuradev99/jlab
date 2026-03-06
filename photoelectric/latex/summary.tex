@@ -1,0 +1,246 @@
+\documentclass[12pt]{article}
+
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{geometry}
+\usepackage{booktabs}
+\usepackage{hyperref}
+\usepackage{physics}
+\usepackage{microtype}
+
+\geometry{margin=1in}
+
+\title{Experimental Determination of Einstein's Theory of Light and Planck's Constant with the Photoelectric Effect}
+\author{Ethan Suresh, Vicki Mu, J-Lab Team}
+\date{}
+
+\begin{document}
+
+\maketitle
+
+\section{Introduction: Two Conflicting Theories of Light}
+
+Two fundamentally different descriptions of light were historically in competition. The \textbf{classical theory} treats light as a continuous electromagnetic wave, described by
+\begin{equation}
+    \mathbf{E}(\mathbf{r}, t) = E_0 \hat{x} \cos(kz - \omega t + \phi),
+\end{equation}
+with intensity proportional to the square of the field amplitude,
+\begin{equation}
+    I \propto |E_0|^2.
+\end{equation}
+Under this picture, the energy deposited on a surface depends continuously on the wave's intensity and time of exposure.
+
+The \textbf{Einstein (quantum) theory} instead posits that light comes in discrete, quantized energy packets called photons. Each photon carries energy
+\begin{equation}
+    E = h\nu,
+\end{equation}
+where $h$ is Planck's constant and $\nu$ is the photon frequency. This predicts that whether an electron can be ejected from a material depends on the photon frequency alone, not on the light intensity.
+
+\subsection{The Photoelectric Effect}
+
+When light strikes a metallic surface, electrons may be ejected — this is the photoelectric effect. The Einstein picture introduces the concept of the \textbf{work function} $\phi$: the minimum energy required to liberate an electron from a material. When a photon of sufficient frequency strikes the surface, it ejects an electron with kinetic energy
+\begin{equation}
+    K = h\nu - \phi.
+\end{equation}
+In this experiment, the relevant version of this equation uses the anode work function $\phi_A$ and the stopping voltage $V_s$ (the applied retarding voltage at which the photocurrent falls to zero):
+\begin{equation}
+    eV_s = h\nu - \phi_A.
+\end{equation}
+This relation predicts a \emph{linear} relationship between stopping voltage and photon frequency, with slope $h/e$. Measuring this slope across multiple wavelengths yields Planck's constant.
+
+\section{Experimental Objectives}
+
+The primary goals of this experiment are:
+\begin{enumerate}
+    \item Test Einstein's theory of light quanta against the classical wave theory using the photoelectric effect.
+    \item Measure Planck's constant $h$ and the work function of the anode $\phi_A$.
+    \item Characterize sources of systematic and statistical error.
+\end{enumerate}
+Specific questions addressed include: how the photocurrent depends on applied voltage and wavelength; whether a linear relationship $V_s \propto \nu$ holds; and what systematic effects confound the results.
+
+\section{Experimental Apparatus}
+
+\subsection{Overview}
+
+[PLACEHOLDER: Diagram of the full apparatus (mercury lamp $\to$ filter wheel $\to$ photodiode $\to$ electrometer and power supply).]
+
+The apparatus consists of:
+\begin{itemize}
+    \item An \textbf{Oriel 65130 Mercury Lamp} providing high-intensity, sharp spectral lines.
+    \item A \textbf{filter wheel} used to select individual spectral lines.
+    \item A \textbf{Leybold Photocell} (photodiode) housing the cathode and anode.
+    \item A \textbf{Keithley Electrometer} measuring photocurrent.
+    \item An \textbf{Agilent Power Supply} applying the retarding voltage.
+\end{itemize}
+
+\subsection{Mercury Lamp and Filters}
+
+The Oriel 65130 mercury lamp requires a warmup period of approximately 10--15 minutes. Light exits through a housing aperture and passes through a filter wheel to select the desired wavelength. Three spectral lines were used:
+\begin{equation}
+    \lambda = 404.7 \text{ nm}, \quad 435.8 \text{ nm}, \quad 577.0 \text{ nm},
+\end{equation}
+corresponding to frequencies
+\begin{equation}
+    \nu = 7.41 \times 10^{14}\ \text{Hz}, \quad 6.88 \times 10^{14}\ \text{Hz}, \quad 5.20 \times 10^{14}\ \text{Hz}.
+\end{equation}
+The wavelength uncertainty is $\sigma_\lambda = 2.0$ nm, dominated by the filter bandpass; the intrinsic lamp line uncertainty is much smaller.
+
+\subsection{Leybold Photocell}
+
+[PLACEHOLDER: Photo of the Leybold photocell.]
+
+The photocell contains:
+\begin{itemize}
+    \item \textbf{Cathode}: potassium, the source of photoelectrons ($\phi_\text{cathode} \approx 2.3$ eV).
+    \item \textbf{Anode}: platinum-rhodium alloy ring-wire ($\phi_A \approx 5.7$ eV).
+\end{itemize}
+Relevant experimental considerations for the photocell include the geometry of electron scattering, surface variation in work function, cathode material deposition onto the anode over time, reverse current, and ambient light contamination.
+
+\subsection{Electrometer and Power Supply}
+
+The \textbf{Keithley Electrometer} connects the cathode to ground and measures the outgoing photocurrent. It is sensitive to ambient magnetic fields and charges (e.g.\ nearby cords and hand movements). The \textbf{Agilent Power Supply} applies a positive (retarding) voltage from cathode to anode, repelling photoelectrons. Its voltage precision is approximately $0.01$ V, which defines the uncertainty $\sigma_V = 0.01$ V used in data analysis.
+
+\section{Experimental Procedure}
+
+\begin{enumerate}
+    \item Set up the apparatus: zero-check the ammeter, connect the ground, and adjust filter orientation.
+    \item Cover the apparatus with a black cloth to suppress ambient light.
+    \item For each selected wavelength:
+        \begin{enumerate}
+            \item Starting from $V = 0.00$ V, increase the retarding voltage in small increments ($0.01$--$0.1$ V).
+            \item Wait approximately 5 seconds for the current to stabilize at each voltage.
+            \item Record approximately 5 electrometer readings per voltage step.
+            \item Continue until the current plateaus near zero.
+        \end{enumerate}
+\end{enumerate}
+
+\section{Data Analysis}
+
+\subsection{Normalized I-V Curves}
+
+[PLACEHOLDER: Plot of normalized I-V curves for 404.7 nm, 435.8 nm, and 577.0 nm.]
+
+To compare the three datasets on equal footing, currents are normalized by magnitude and range:
+\begin{equation}
+    I_n(V) = \frac{I(V) - I_{\min}}{I_{\max} - I_{\min}}.
+\end{equation}
+The normalized curves reveal that the decay location shifts strongly with wavelength: shorter wavelengths (higher photon energies) exhibit photocurrent out to larger retarding voltages, consistent with Einstein's prediction.
+
+\subsection{Spline-Fit Bootstrapping Method}
+
+Stopping voltages $V_s$ are determined by fitting a smoothing spline $\tilde{I}(V)$ to each I-V dataset and identifying the inflection point (concavity change) as the stopping potential:
+\begin{equation}
+    \frac{d^2\tilde{I}}{dV^2}(V_s) = 0.
+\end{equation}
+The spline depends on two parameters: the polynomial degree $k$ (either 4 or 5) and the smoothing parameter $s = 10^7$.
+
+To propagate measurement uncertainties into $V_s$, a \textbf{bootstrap} procedure is used. Each bootstrap resample perturbs the data independently:
+\begin{align}
+    V_i^{(b)} &= V_i + \varepsilon_i^V, \qquad \varepsilon_i^V \sim \mathcal{N}(0,\, \sigma_V), \\
+    I_i^{(b)} &= I_i + \varepsilon_i^I, \qquad \varepsilon_i^I \sim \mathcal{N}(0,\, \sigma_I).
+\end{align}
+A spline is fitted to each resampled dataset, and $V_s^{(b)}$ is extracted; $N = 1000$ bootstrap iterations are run per wavelength. The mean and standard deviation of $\{V_s^{(b)}\}$ yield the stopping voltage estimate and its statistical uncertainty.
+
+\subsection{Bootstrap Results}
+
+[PLACEHOLDER: Two-panel figure showing (left) bootstrap spline ensemble and (right) second-derivative curves with $V_s$ marked for all three wavelengths.]
+
+The resulting stopping voltages (primary, $k = 4$) are:
+\begin{center}
+\begin{tabular}{lcc}
+\toprule
+Wavelength (nm) & $\nu$ ($\times 10^{14}$ Hz) & $V_s$ (V) \\
+\midrule
+404.7 & 7.41 & $1.256 \pm 0.009$ \\
+435.8 & 6.88 & $1.023 \pm 0.017$ \\
+577.0 & 5.20 & $0.403 \pm 0.024$ \\
+\bottomrule
+\end{tabular}
+\end{center}
+
+\section{Systematic Error Analysis}
+
+\subsection{Sources of Systematic Uncertainty}
+
+Several systematic effects were identified and characterized:
+
+\begin{itemize}
+    \item \textbf{Thermal noise}: At room temperature, $3.5 k_B T \approx 0.1$ eV of thermal energy broadens the electron energy distribution. This contributes a systematic uncertainty of approximately 0.05 eV on the stopping voltage, acting in the same direction for each wavelength.
+
+    \item \textbf{Ambient light and dark current}: The apparatus was covered with a black cloth to suppress ambient light. Dark current was found to be relatively negligible after normalization and use of the second derivative to locate $V_s$.
+
+    \item \textbf{Model uncertainty ($k = 4$ vs.\ $k = 5$)}: Two spline degrees are used as independent estimates of $h$. The spread between them is taken as a systematic uncertainty contribution; the weighted mean is reported as the central value.
+
+    \item \textbf{Higher-frequency light contamination (light leakage)}: A gap between the filter wheel and the photocell aperture allows higher-energy photons beyond the selected wavelength to reach the cathode. This broadens the high-voltage tail of the I-V curve, artificially increasing the measured $V_s$. This is identified as a dominant systematic effect.
+\end{itemize}
+
+\subsection{Tape Test for Light Leakage}
+
+[PLACEHOLDER: Comparison I-V plot for 577.0 nm with and without tape.]
+
+To directly probe the effect of light leakage, tape was applied to seal the gap between the filter and photocell aperture for the 577.0 nm measurement. The results show a measurably lower stopping voltage with tape applied:
+\begin{center}
+\begin{tabular}{lc}
+\toprule
+Configuration & $V_s$ (V) \\
+\midrule
+577.0 nm (no tape) & $0.40 \pm 0.02$ \\
+577.0 nm (tape)    & $0.37 \pm 0.03$ \\
+\bottomrule
+\end{tabular}
+\end{center}
+This confirms that unfiltered higher-energy light inflates the stopping voltage, and suggests that applying tape uniformly across all wavelengths would improve accuracy.
+
+\section{Results: Planck's Constant and Anode Work Function}
+
+\subsection{Linear ODR Fit}
+
+[PLACEHOLDER: Plot of stopping voltage $V_s$ vs.\ frequency $\nu$ with ODR linear fits for $k=4$ and $k=5$, including annotated $\chi^2/\text{DOF}$, $p$-values, and $\phi_A$.]
+
+The stopping voltages are fit to the linear model $eV_s = h\nu - \phi_A$ using Orthogonal Distance Regression (ODR), which accounts for uncertainties in both $\nu$ and $V_s$. With $N = 3$ data points and 2 free parameters, the number of degrees of freedom is $\nu_\text{DOF} = 1$. The individual fit results are:
+
+\begin{center}
+\begin{tabular}{lccc}
+\toprule
+Spline degree & $h\ (\times 10^{-34}\ \text{J}\cdot\text{s})$ & $\phi_A$ (eV) & $\chi^2/\text{DOF}$ ($p$) \\
+\midrule
+$k = 4$ & $6.45 \pm 0.18$ & $1.73 \pm 0.08$ & $0.62/1$ ($p = 0.43$) \\
+$k = 5$ & $6.55 \pm 0.18$ & $1.77 \pm 0.08$ & $0.29/1$ ($p = 0.59$) \\
+\bottomrule
+\end{tabular}
+\end{center}
+
+\subsection{Combined Results}
+
+The two estimates of $h$ are combined using inverse-variance weighting. The model uncertainty (half the spread between $k=4$ and $k=5$) is added in quadrature to the weighted statistical uncertainty to give the total uncertainty. The anode work function carries an additional asymmetric systematic from thermal noise. The final combined results are:
+\begin{align}
+    \hat{h} &= \bigl(6.49 \pm 0.12\ (\text{stat}) \pm 0.05\ (\text{sys})\bigr) \times 10^{-34}\ \text{J}\cdot\text{s}, \\
+    \hat{\phi}_A &= \left(1.75 \pm 0.06\ (\text{stat})\ ^{+0.02}_{-0.05}\ (\text{sys})\right)\ \text{eV}.
+\end{align}
+The accepted values are $h = 6.626 \times 10^{-34}$ J$\cdot$s and $\phi_A \approx 5.7$ eV (Pt-Rh anode). The measured $\hat{h}$ is within $1.0\,\sigma$ of the accepted value. However, the work function is discrepant by approximately $49\,\sigma$ from the expected anode value of 5.7 eV — indicating that large, unaccounted systematic effects dominate $\hat{\phi}_A$.
+
+\section{Unaccounted Systematic Effects}
+
+Several systematic effects beyond those explicitly modelled are likely responsible for the large discrepancy in the anode work function:
+
+\begin{itemize}
+    \item \textbf{Cathode surface variation}: The work function of the potassium cathode is not spatially uniform, contributing a spread in electron energies.
+    \item \textbf{Electron scattering geometry}: Photoelectrons follow nonlinear paths due to the electric field geometry inside the photocell, introducing a voltage-dependent correction.
+    \item \textbf{Wavelength filter uncertainty}: The filter transmission profiles allow some fraction of higher-energy photons through; the exact amount is not well-characterized.
+    \item \textbf{Cathode deposition onto the anode}: Over time, potassium deposited on the platinum-rhodium anode substantially lowers the effective anode work function (noted by Melissinos as a heavy effect), which directly shifts the intercept $\phi_A$ of the $V_s$ vs.\ $\nu$ fit.
+\end{itemize}
+
+\section{Conclusion}
+
+The photoelectric effect experiment supports Einstein's theory of light quanta: the measured photocurrent decays sharply with applied voltage, and the stopping voltage depends strongly on wavelength. The linear relationship $V_s \propto \nu$ predicted by Einstein is confirmed, yielding Planck's constant:
+\begin{equation}
+    \hat{h} = (6.49 \pm 0.12\ (\text{stat}) \pm 0.05\ (\text{sys})) \times 10^{-34}\ \text{J}\cdot\text{s},
+\end{equation}
+consistent with the accepted value to within $1.0\,\sigma$. In summary:
+\begin{itemize}
+    \item $E = h\nu$: \textbf{confirmed.} The spline-fitting method is consistent across wavelengths and provides a reliable estimate of $h$.
+    \item $eV_s = h\nu - \phi_A$: \textbf{not accurately recovered.} The anode work function is heavily biased by cathode deposition, light leakage, and other uncontrolled systematics.
+\end{itemize}
+Future improvements include applying tape to seal the filter-photocell gap for all wavelengths, using a fresher photocell to minimize cathode deposition, and more carefully characterizing the filter transmission profiles.
+
+\end{document}
