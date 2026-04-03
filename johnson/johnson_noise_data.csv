@@ -1,3 +1,5 @@
 Resistance (kOhm),Uncertainty,Resistance Voltage (mV RMS AC),Uncertainty,Shorted Voltage,Uncertainty
 477.7,0.05,6.5,0.15,1.2,0.02
-1008,0.5,6.1,0.15,1.2,0.02
+1007,1,6.1,0.15,1.2,0.02
+816,1,6.25,0.05,1.15,0.005
+1007,1,6.1,0.1,1.16,0.01

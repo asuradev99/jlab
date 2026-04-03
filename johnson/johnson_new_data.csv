@@ -1,0 +1,15 @@
+Resistance (kOhm),Uncertainty,Resistance Voltage (mV RMS AC),Uncertainty,Shorted Voltage,Uncertainty,T (deg. C),,
+477.7,0.05,6.5,0.15,1.2,0.02,Room,,
+1008,1,6.1,0.15,1.2,0.02,Room,,
+816,1,6.25,0.05,1.15,0.005,Room,3/31/26,
+1006,1,6.1,0.1,1.16,0.01,Room,3/31/26,
+1008,1,6.1,0.1,1.18,0.01,Room,4/2/26,
+1008,1,6.2,0.1,1.17,0.01,Room,4/2/26,randomized the alligator clip orientations
+1008,1,6.2,0.1,1.17,0.01,Room,4/2/26,
+816,1,6.35,0.1,1.18,0.01,Room,4/2/26,
+816,1,6.4,0.15,1.195,0.01,Room,4/2/26,
+816,1,6.4,0.1,1.18,0.01,Room,4/2/26,
+477,1,6.65,0.1,1.18,0.01,Room,4/2/26,using 477 instead of 477.7 because I measured it again
+178.3,0.1,6.55,0.1,1.175,0.01,Room,4/2/26,
+334,1,6.7,0.1,1.175,0.01,Room,4/2/26,
+2753,1,5.0,0.1,1.18,0.01,Room,4/2/26,
