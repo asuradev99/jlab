@@ -1,0 +1,7 @@
+###################################################################################################
+### CosmicWatch: The Desktop Muon Detector
+### Device ID: BartonZwiebach
+### Launch time: 0:05:43 1/1/2019
+### Questions? Email Spencer N. Axani (saxani@mit.edu)
+### Event Time Date TimeStamp[ms] ADC1 ADC2 SiPM[mV] Temp[C] Pressure[Pa] DeadTime[us] Coincident ID
+###################################################################################################

@@ -1,0 +1,192 @@
+% ────────────────────────────────────────────────────────────────────────
+% SNIPPET 1 — SRH GENERATION MODEL
+% ────────────────────────────────────────────────────────────────────────
+
+The dark-current count rate of a silicon photomultiplier (SiPM) at elevated
+temperatures is dominated by Shockley--Read--Hall (SRH) thermal generation
+in the depletion region~\cite{shockley1952,hall1952}.  The SRH generation
+rate follows a power-law Arrhenius temperature dependence:
+\begin{equation}
+    R(T) = A \, T^{\gamma} \exp\!\left(-\frac{E_a}{k_B T}\right),
+    \label{eq:srh}
+\end{equation}
+where $A$ is a device-dependent prefactor, $\gamma$ is the temperature
+power-law index (fixed to $\gamma = 2$ as dictated by standard SRH
+theory for intrinsic generation~\cite{sze2006}), $k_B =
+8.6173e-05$\,eV\,K$^{-1}$ is the Boltzmann constant, and $E_a$ is the
+thermal activation energy.  For traps at the mid-gap level, SRH theory
+predicts $E_a = E_g/2 \approx 0.56$\,eV for silicon near room temperature.
+
+Taking the natural logarithm of Eq.~\eqref{eq:srh} and isolating the
+temperature-dependent terms gives a form linear in $1/T$:
+\begin{equation}
+    \ln R - \gamma\ln T
+    = \ln A - \frac{E_a}{k_B}\cdot\frac{1}{T},
+    \label{eq:srh_linear}
+\end{equation}
+with slope $-E_a/k_B$ and intercept $\ln A$.  The parameters $E_a$ and $A$
+are extracted by fitting Eq.~\eqref{eq:srh_linear} via orthogonal distance
+regression (ODR), which propagates measurement uncertainties in both $R$
+and $T$.
+
+The measured rates exhibit qualitatively different behaviour below and above
+$T_c = 50\,^\circ$C, suggesting two distinct generation mechanisms.  The
+two regimes are therefore fitted independently with the same
+model~\eqref{eq:srh} but separate parameters $(A,\,E_a)$.
+
+% ────────────────────────────────────────────────────────────────────────
+% SNIPPET 2 — COUNT RATE CALCULATION
+% ────────────────────────────────────────────────────────────────────────
+
+For each stable temperature window, detected events are extracted from the
+device-clock timestamp stream. The live observation time accounts for the
+per-event dead time reported by the CosmicWatch firmware:
+\begin{equation}
+    T_{\mathrm{live}}
+    = T_{\mathrm{elapsed}}
+      - \sum_{i=1}^{N} \delta t_{i}^{\,\mathrm{dead}},
+    \label{eq:tlive}
+\end{equation}
+where $\delta t_{i}^{\,\mathrm{dead}}$ is the dead time of event $i$ in
+microseconds. The dead-time-corrected count rate and its Poisson statistical
+uncertainty are
+\begin{align}
+    R          &= \frac{N}{T_{\mathrm{live}}},           \label{eq:rate}   \\[4pt]
+    \sigma_{R} &= \frac{\sqrt{N}}{T_{\mathrm{live}}},    \label{eq:rate_err}
+\end{align}
+where the second line follows from $\sigma_{N} = \sqrt{N}$ for independent
+(Poisson) counting.
+
+For the $1\,^{\circ}$C temperature-binned scatter data, each inter-event
+interval $\Delta t_{j} = t_{j+1} - t_{j}$ is assigned to the integer
+temperature bin of the preceding event $j$. The bin live time is
+\begin{equation}
+    T_{\mathrm{live}}^{(b)}
+    = \sum_{j\,\in\,b} \Delta t_{j}
+      - \frac{1}{10^{6}} \sum_{j\,\in\,b} \delta t_{j}^{\,\mathrm{dead}},
+    \label{eq:tlive_bin}
+\end{equation}
+and the rate and uncertainty follow from Eqs.~\eqref{eq:rate}--\eqref{eq:rate_err}
+with $N \to N_{b}$ (the number of intervals in bin $b$).
+
+% ────────────────────────────────────────────────────────────────────────
+% SNIPPET 3 — SYSTEMATIC UNCERTAINTY ESTIMATION
+% ────────────────────────────────────────────────────────────────────────
+
+Two sources of systematic uncertainty on $E_a$ are evaluated for each
+temperature regime.
+
+\textbf{Power-law index $\gamma$.}
+Standard SRH theory predicts $\gamma = 2$ for intrinsic mid-gap
+generation in silicon.  To account for deviations from this assumption the
+fit is repeated with $\gamma \in \{1,\,2,\,3\}$.  The systematic
+uncertainty from this source is taken as half the full spread of the
+resulting $E_a$ values:
+\begin{equation}
+    \sigma_{\mathrm{sys}}^{(\gamma)}
+    = \frac{|E_a(\gamma=3) - E_a(\gamma=1)|}2.
+    \label{eq:sys_gamma}
+\end{equation}
+For the low-$T$ regime this gives
+$\sigma_{\mathrm{sys}}^{(\gamma)} = 0.03$\,eV and for the
+high-$T$ regime $\sigma_{\mathrm{sys}}^{(\gamma)} = 0.03$\,eV.
+
+\textbf{Regime boundary $T_c$.}
+The boundary between the two SRH regimes is not a sharp physical transition.
+The sensitivity of $E_a$ to this choice is estimated by repeating the fits
+with $T_c \in \{40,\,45,\,50,\,55\}\,^\circ$C.  The systematic uncertainty
+is half the full range of the resulting $E_a$ values across all valid
+choices:
+\begin{equation}
+    \sigma_{\mathrm{sys}}^{(T_c)}
+    = \frac{\displaystyle\max_{i}\,E_a(T_c^{(i)})
+             - \min_{i}\,E_a(T_c^{(i)})}2.
+    \label{eq:sys_cutoff}
+\end{equation}
+This yields $\sigma_{\mathrm{sys}}^{(T_c)} = 0.008$\,eV (low-$T$)
+and $0.8$\,eV (high-$T$).
+
+The two contributions are assumed independent and combined in quadrature:
+\begin{equation}
+    \sigma_{\mathrm{sys}}
+    = \sqrt{\bigl(\sigma_{\mathrm{sys}}^{(\gamma)}\bigr)^2
+            + \bigl(\sigma_{\mathrm{sys}}^{(T_c)}\bigr)^2}.
+    \label{eq:sys_quad}
+\end{equation}
+The total uncertainty on $E_a$ is then
+\begin{equation}
+    \sigma_{\mathrm{total}}
+    = \sqrt{\sigma_{\mathrm{stat}}^2 + \sigma_{\mathrm{sys}}^2},
+    \label{eq:total_unc}
+\end{equation}
+where $\sigma_{\mathrm{stat}}$ is the statistical uncertainty returned
+directly by the ODR fit.
+
+% ────────────────────────────────────────────────────────────────────────
+% SNIPPET 4 — SYSTEMATIC ERROR TABLE
+% ────────────────────────────────────────────────────────────────────────
+
+\begin{table}[htbp]
+\centering
+\caption{Statistical and systematic uncertainties on the activation energy
+          $E_a$ for both temperature regimes.}
+\label{tab:systematics}
+\begin{tabular}{lcccc}
+\hline\hline
+   & \multicolumn{2}{c}{Low-$T$ ($T < 50\,^\circ\mathrm{C}$)}
+   & \multicolumn{2}{c}{High-$T$ ($T \geq 50\,^\circ\mathrm{C}$)} \\
+Source
+   & (eV) & rel.\ (\%)
+   & (eV) & rel.\ (\%) \\
+\hline
+$E_a$
+   & $-0.024 \pm 0.010$ & --
+   & $2.4 \pm 0.8$ & -- \\
+$\sigma_{\mathrm{stat}}$
+   & $\pm 0.010$        & 40\%
+   & $\pm 0.8$        & 32\% \\
+$\sigma_{\mathrm{sys}}$ (power-law index $\gamma$)
+   & $\pm 0.03$  & 109\%
+   & $\pm 0.03$  & 1\% \\
+$\sigma_{\mathrm{sys}}$ (regime cutoff $T_c$)
+   & $\pm 0.008$  & 36\%
+   & $\pm 0.8$  & 31\% \\
+\hline
+$\sigma_{\mathrm{sys}}$ total (quadrature)
+   & $\pm 0.03$  & 115\%
+   & $\pm 0.8$  & 31\% \\
+$\sigma_{\mathrm{total}}$ (stat $\oplus$ sys)
+   & $\pm 0.03$  & 122\%
+   & $\pm 1$  & 45\% \\
+\hline\hline
+\end{tabular}
+\end{table}
+
+% ────────────────────────────────────────────────────────────────────────
+% SNIPPET 5 — FINAL E_a VALUES
+% ────────────────────────────────────────────────────────────────────────
+
+The activation energies extracted from the two-regime SRH fits are:
+\begin{align}
+    E_a^{\mathrm{low}}
+        &= -0.024
+           \pm 0.010\,\text{(stat.)}
+           \pm 0.03\,\text{(sys.)}
+        &&= -0.024 \pm 0.03\;\mathrm{eV},
+        \label{eq:Ea_low}
+    \\[6pt]
+    E_a^{\mathrm{high}}
+        &= 2.4
+           \pm 0.8\,\text{(stat.)}
+           \pm 0.8\,\text{(sys.)}
+        &&= 2.4 \pm 1\;\mathrm{eV},
+        \label{eq:Ea_high}
+\end{align}
+where the systematic uncertainty combines the power-law index ($\gamma$) and
+regime cutoff ($T_c$) contributions in quadrature.
+The low-$T$ value is consistent with zero within $1\sigma$, indicating that
+the dark-current rate is approximately temperature-independent in the range
+$8$--$45\,^\circ$C. The high-$T$ regime ($T \geq 50\,^\circ$C) yields a
+significant activation energy of $E_a = 2.4 \pm 1$\,eV, consistent
+with SRH generation in the SiPM depletion region.
+

@@ -1,0 +1,38 @@
+,,,,,
+Temperature (deg C),File number (ethan-max-nmr/tek000 or 00),Time difference (s),Column 1,Beeswax sample,Extra
+30,6,20,(approx),big,DC coupling
+30.8,7,21.44,,big,DC coupling
+30.6,8,20.69,,big,DC coupling
+35,9,20.5,,big,DC coupling
+35,10,38.64,,big,DC coupling
+35,11,20.65,,big,switched to AC for all other data points
+40,12,25.51,,big,
+40,13,22.52,,small,
+40,14,21.06,,big,
+40,15,21.74,,big,
+45,16,21,(approx),big,
+55,17,17.37,,big,first temperature where we saw a signal
+55,19,10.52,,big,
+60,20,11,,big,
+65,21,9.66,,big,Waiting longer before taking this data because there is a visible phase change in the beeswax
+65,22,9.06,,big,
+70,23,10.41,,big,
+75,24,10.78,,big,
+80,25,10.24,,big,
+72.5,26,15,(approx),big,
+67.5,27,8.88,,big,
+77.5,28,13.81,,big,
+82.5,29,13.2,,big,
+51,31,11.8,,big,DC coupling
+52,33,15,(approx),big,DC coupling
+53,34,14.7,,big,DC coupling
+54,35,16.2,,big,DC coupling
+57.5,36,15.82,,big,DC coupling
+62.5,38,14.3,,big,DC coupling
+66,39,19.28,,big,DC coupling
+68.5,40,16.17,,big,DC coupling
+71.2,41,13.89,,big,DC coupling
+73.7,42,14.16,,big,DC coupling
+76.2,43,16,,big,DC coupling
+78.5,44,13.6,,big,DC coupling
+85,45,15.8,,big,DC coupling
