@@ -9,7 +9,7 @@ font.family        : serif
 figure.dpi         : 300
 
 # --- Axes ---
-axes.labelsize     : 8
+axes.labelsize     : 11
 axes.linewidth     : 0.6
 
 # --- Lines / Markers ---
@@ -21,7 +21,7 @@ patch.linewidth    : 0.4
 errorbar.capsize   : 1
 
 # --- Ticks (x) ---
-xtick.labelsize        : 7
+xtick.labelsize        : 9
 xtick.direction        : out
 xtick.major.width      : 0.6
 xtick.minor.visible    : True
@@ -29,7 +29,7 @@ xtick.minor.size       : 2
 xtick.minor.width      : 0.4
 
 # --- Ticks (y) ---
-ytick.labelsize        : 7
+ytick.labelsize        : 9
 ytick.direction        : out
 ytick.major.width      : 0.6
 ytick.minor.visible    : True
@@ -38,4 +38,4 @@ ytick.minor.width      : 0.4
 
 # --- Legend ---
 legend.frameon     : False
-legend.fontsize    : 6
+legend.fontsize    : 9
